@@ -1,0 +1,36 @@
+<div class="container">
+  <h1>Edit Medi</h1>
+  <form ngNativeValidate #formRef="ngForm" (ngSubmit)="onSubmit(formRef.value)">
+    <div class="form-group">
+      <label for="name">Medicine Name</label>
+      <input type="text" class="form-control" id="name" name="name" [ngModel]="medi.name" required minlength="3" >
+    </div>
+    <div class="form-group">
+      <label for="company">Company</label>
+      <input type="text" class="form-control" id="company" name="company" [ngModel]="medi.company" required minlength="3" #authorRef="ngModel">
+    </div>
+
+    <div class="form-group">
+      <label for="manufacturingDate">Manufacturing Date</label>
+      <input type="date" class="form-control" id="manufacturingDate" name="manufacturingDate" [ngModel]="medi.manufacturingDate" required  #publicationDateRef="ngModel" >
+    </div>
+    <div class="form-group">
+      <label for="expiryDate">Expiry Date</label>
+      <input type="date" class="form-control" id="expiryDate" name="expiryDate" [ngModel]="medi.expiryDate" required  #publicationDateRef="ngModel" >
+    </div>
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input type="number" class="form-control" id="price" name="price" min="0" step="any" [ngModel]="medi.price" required   #priceRef="ngModel" >
+    </div>
+    <div class="form-group">
+        
+          <label for="type">Select Type</label>
+          <select class='form-control' required [ngModel]="medi.type"  name="type" id="type">
+            <option class='option' *ngFor='let type of typeArray' [ngValue]="type">{{type}}</option>
+        </select>
+      </div>
+
+
+    <button type="submit" class="btn btn-info">Submit</button>
+  </form>
+</div>

@@ -1,0 +1,30 @@
+doctype
+html
+  head
+    title=title
+  body
+    h3 Medicines
+    table
+      tr
+        th MediId
+        th Name
+        th Company
+        th ManufacturingDate
+        th ExpiryDate
+        th Edit
+        th Delete
+      each item in mediList
+        tr
+          td #{item.id}
+          td #{item.name}
+          td #{item.company}
+          td #{item.manufacturingDate}
+          td #{item.expiryDate}
+          td #{item.price}
+          td
+            a(href='/pharmacy/edit/#{item.id}') Edit
+          td
+            a(href='/pharmacy/delete/#{item.id}') Delete
+    p
+    #menu
+      a(href='/pharmacy/create') Add new medicine

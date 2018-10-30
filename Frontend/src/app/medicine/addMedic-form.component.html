@@ -1,0 +1,44 @@
+<div class="container">
+  <h1>Add Medicine</h1>
+  <form  ngNativeValidate (ngSubmit)="onSubmit(formRef)" #formRef="ngForm" >
+    <div class="form-group">
+      <label for="name">Medicine Name</label>
+      <input type="text" id="name" class="form-control" ngModel name="name" required="required" />
+      <!--<div *ngIf="nameRef.invalid && (nameRef.dirty || nameRef.touched)" class="alert alert-danger">
+        <div *ngIf="nameRef.errors.required">
+          Name is required.
+        </div>
+        <div *ngIf="nameRef.errors.minlength">
+          Name must be at least 3 characters long.
+        </div>
+      </div>-->
+    </div>
+    <div class="form-group">
+      <label for="company">Company</label>
+      <input type="text" class="form-control" id="company" name="company" ngModel required="required" minlength="3" />
+    </div>
+
+    <div class="form-group">
+      <label for="manufacturingDate">Manufacturing Date</label>
+      <input type="date" class="form-control" id="manufacturingDate" name="manufacturingDate" ngModel required  />
+    </div>
+    <div class="form-group">
+      <label for="expiryDate">Expiry Date</label>
+      <input type="date" class="form-control" id="expiryDate" name="expiryDate" ngModel required  />
+    </div>
+
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input type="number" class="form-control" min="0.0" step  ="any" id="price" name="price" ngModel required />
+    </div>
+<div class="form-group">
+  
+    <label for="type">Select Type</label>
+    <select class='form-control' required ngModel name="type" id="type  ">
+      <option class='option' *ngFor='let type of typeArray' [value]="type">{{type}}</option>
+  </select>
+</div>
+  
+    <button type="submit" class="btn btn-info" >Submit</button>
+  </form>
+</div>

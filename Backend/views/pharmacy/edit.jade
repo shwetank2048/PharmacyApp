@@ -1,0 +1,23 @@
+doctype
+html
+  head
+    title Edit existing medicine
+  body
+    h3 Medicine Details
+    form(id='form', method='post', action='/pharmacy/edit/#{medi.id}')
+      label(for='name') Name 
+      input(type='text', id='author', name='name', value='#{medi.name}')
+      <br/><br/>
+      label(for='company') Company 
+      input(type='text', id='company', name='company', value='#{medi.company}')
+      <br/><br/>
+      label(for='date1') Manufacturing Date 
+      input(type='text', id='date1', name='manufacturingDate', value='#{medi.manufacturingDate}')
+      <br/><br/>
+      label(for='date2') Expiry Date 
+      input(type='text', id='date2', name='expiryDate', value='#{medi.expiryDate}')
+      <br/><br/>
+      label(for='price') Price 
+      input(type='text', id='price', name='price', value='#{medi.price}')
+      <br/><br/>
+      input(type='submit', value='Update Comment')

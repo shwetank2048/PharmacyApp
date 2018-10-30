@@ -1,0 +1,48 @@
+<div class='panel panel-default'>
+    <div class='panel-heading'>
+        <p class="panel-title"><span style="color:#5bc0de" class="glyphicon glyphicon-list"></span>Medicine List</p>
+        {{title}}
+    </div>
+    <div class='panel-body'>
+        <div class='row'>
+            <div class='col-md-2'>Filter by:</div>
+            <div class='col-md-4'>
+                <input type='text'
+                       placeholder="Enter search string"
+                    [(ngModel)]='nameFilter' />
+            </div>
+        </div>
+<hr>
+<div >
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Company</th>
+            <th>Price</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let medic of mediList | medicFilter: nameFilter">
+            <td>{{medic.name}}</td>
+            <td>{{medic.company}}</td>
+            <td>{{medic.price | currency}}</td>
+            <td>
+                <a  [routerLink]="['/medics',medic.id]" class="btn btn-info"> <span class="glyphicon glyphicon-th-list">
+                    </span>Show</a>
+                <a [routerLink]="['/editMedic',medic.id]" class="btn btn-success"><span class="glyphicon glyphicon-edit">
+                    </span>Edit</a>
+                <a (click)="deleteMedi(medic.id)" class="btn btn-danger"><span class="glyphicon glyphicon-trash">
+                    </span>Delete</a>
+
+            </td>
+          </tr>
+    </tbody>
+</table>
+</div>
+
+      <hr>
+      <a routerLink="/addMedic" class="btn btn-xs btn-primary"><span style="color:#5bc0de" class="glyphicon glyphicon-plus"></span>Add Book</a>
+    </div>
+</div>
